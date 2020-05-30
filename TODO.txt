@@ -1,0 +1,3 @@
+Création / importation du framework 				Done
+Modifier la config						Done
+Créer des répertoires dans les vues et tester 			NotDone
