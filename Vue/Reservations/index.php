@@ -52,7 +52,7 @@
     <table class="listeEnregistrement" align="center">
         <tr >
             <th>Modifier</th>
-            <th>Supprimer</th>
+            <th>Effacer</th>
             <th>Date d'arrivée</th>
             <th>Date de départ</th>
             <th>No. chambre</th>
@@ -62,7 +62,7 @@
         foreach ($reservations as $reservations)
         {
             echo "<tr><td>".'<a href="reservations/modifier/' . htmlspecialchars($reservations['numeroReservation']) . '">[modifier]</a>' ."</td>" .
-                "<td>".'<a href="reservations/confirmer/' . $this->nettoyer($reservations['numeroReservation']) . '">[supprimer]</a>' ."</td>" .
+                "<td>".'<a href="reservations/confirmer/' . $this->nettoyer($reservations['numeroReservation']) . '">[effacer]</a>' ."</td>" .
                 "<td>" . $this->nettoyer($reservations['dateArrivee']) . "</td>".
                 "<td>" . $this->nettoyer($reservations['dateDepart']) . "</td>".
                 "<td>" . $this->nettoyer($reservations['numeroChambre_fk']) . "<i> (".$this->nettoyer($reservations['typeChambre_fk']).")</i></td>".

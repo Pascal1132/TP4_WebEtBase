@@ -2,7 +2,7 @@
 
 
 <h3 style="color:var(--couleurOrange);font-weight: bold;"><?php if($msgCode!=="litsErr" && $msgCode!=="courrielErr" && $msgCode!=="chambreErr" && $msgCode !=="typeErr")echo $msg;?></h3>
-<form action="Apropos/index.php?action=ajoutChambre" method="post" class="formulaire" >
+<form action="Chambres/ajouter" method="post" class="formulaire" >
     <h2>Nouvelle Chambre</h2>
     <ul>
         <li><label for="numero" style="float: left;">Numéro de la chambre:</label>
@@ -36,7 +36,7 @@
     <table class="listeEnregistrement" align="center">
         <tr >
 
-            <th>Supprimer</th>
+            <th>Effacer</th>
             <th>Numéro</th>
 
             <th>Nombre de lits</th>
@@ -46,7 +46,7 @@
             ?>
             <tr>
 
-                <td><a onclick="afficher(<?=$ligne['numeroChambre']?>)">[supprimer]</a></td>
+                <td><a onclick="afficher(<?=$ligne['numeroChambre']?>)">[effacer]</a></td>
                 <td><?=$ligne['numeroChambre']?></td>
                 <td><?=$ligne['nombreLits']?></td>
                 <td><?=$ligne['typeChambre_fk']?></td>
