@@ -1,4 +1,4 @@
-<?php $titre = 'À propos'; ?>
+<?php $this->titre = 'À propos'; ?>
 
 	<h1>À propos</h1>
 	<div class="partie">

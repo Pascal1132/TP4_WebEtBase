@@ -1,4 +1,4 @@
-<?php $titre = 'Accueil'; ?>
+<?php $this->titre = 'Accueil'; ?>
 
 <h3 style="color:var(--couleurOrange);font-weight: bold;"><?php if($this->nettoyer($msgCode)!=="dateErr" && $this->nettoyer($msgCode)!=="chambreErr" && $this->nettoyer($msgCode) !=="utilisateurErr")echo $msg;?></h3>
 <form action="Reservations/ajouter" method="post" class="formulaire" id="formulaireReservation">

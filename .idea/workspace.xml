@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fce253e9-ea4d-4c8c-83e0-ddd2b18aace3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Modele/Chambre.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modele/Chambre.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modele/Reservation.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modele/Reservation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Vue/Accueil.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Vue/Chambres/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/Vue/Chambres/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Vue/Reservations/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/Vue/Reservations/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Vue/vueModifierReservation.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,7 +28,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="E:/Downloads/Vers_un_cadriciel_MVC-master (1)" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../TP5_WebEtBase" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
@@ -71,7 +67,8 @@
       <workItem from="1590238708421" duration="10556000" />
       <workItem from="1590418289783" duration="2103000" />
       <workItem from="1590435265471" duration="1689000" />
-      <workItem from="1590716855785" duration="1933000" />
+      <workItem from="1590716855785" duration="2532000" />
+      <workItem from="1590879110060" duration="25000" />
     </task>
     <servers />
   </component>
@@ -103,9 +100,10 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="690" y="271" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1050/-1440.87.1440.870@0.0.1920.1050" timestamp="1589744789839" />
-    <state x="740" y="279" key="FileChooserDialogImpl" timestamp="1590875689164">
-      <screen x="0" y="0" width="1920" height="1050" />
+    <state x="-885" y="318" key="FileChooserDialogImpl" timestamp="1590879133144">
+      <screen x="-1440" y="87" width="1440" height="870" />
     </state>
+    <state x="-885" y="318" key="FileChooserDialogImpl/0.0.1920.1050/-1440.87.1440.870@-1440.87.1440.870" timestamp="1590879133144" />
     <state x="740" y="279" key="FileChooserDialogImpl/0.0.1920.1050/-1440.87.1440.870@0.0.1920.1050" timestamp="1590875689164" />
     <state x="1120" y="221" key="NewPhpClassDialog" timestamp="1590025049531">
       <screen x="0" y="0" width="1920" height="1050" />

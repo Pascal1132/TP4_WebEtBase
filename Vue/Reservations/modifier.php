@@ -1,4 +1,4 @@
-<?php $titre = 'Modification'; ?>
+<?php $this->titre = 'Modification'; ?>
 
 
 <h3 style="color:var(--couleurOrange);font-weight: bold;"><?php if($msgCode!=="dateErr" && $msgCode!=="chambreErr" && $msgCode !=="utilisateurErr")echo $this->nettoyer($msg);?></h3>

@@ -23,7 +23,7 @@ class Chambre extends Modele
     }
     function suppressionChambre($id){
 
-        $sql = 'UPDATE `chambres` SET efface =1 WHERE numeroChambre = ?';
+        $sql = 'DELETE FROM `chambres` WHERE numeroChambre = ?';
         $this->executerRequete($sql, [$id]);
 
     }

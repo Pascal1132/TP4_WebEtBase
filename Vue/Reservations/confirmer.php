@@ -1,9 +1,9 @@
-<?php $titre = 'Suppression'; ?>
+<?php $this->titre = 'Suppression'; ?>
 
     <div class="partie">
 <?php if($resultat[0]>0){
     ?>
-    <h2>Êtes-vous certain de vouloir supprimer cette réservation?</h2>
+    <h2>Êtes-vous certain de vouloir effacer cette réservation?</h2>
     <fieldset >
         <legend style="text-align: center;">Informations</legend>
         <p >Date d'arrivée : <?=$this->nettoyer($resultat['dateArrivee']);?> <br>

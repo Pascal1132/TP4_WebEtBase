@@ -1,4 +1,4 @@
-<?php $titre = 'Gérer les chambres'; ?>
+<?php $this->titre = 'Gérer les chambres'; ?>
 
 
 <h3 style="color:var(--couleurOrange);font-weight: bold;"><?php if($msgCode!=="litsErr" && $msgCode!=="courrielErr" && $msgCode!=="chambreErr" && $msgCode !=="typeErr")echo $msg;?></h3>
