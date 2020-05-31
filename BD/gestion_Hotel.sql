@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  localhost:3306
--- Généré le :  Lun 20 Avril 2020 à 19:03
+-- Généré le :  Sam 30 Mai 2020 à 22:38
 -- Version du serveur :  10.1.44-MariaDB-0+deb9u1
 -- Version de PHP :  7.0.33-0+deb9u7
 
@@ -29,16 +29,16 @@ SET time_zone = "+00:00";
 CREATE TABLE `chambres` (
   `numeroChambre` int(11) NOT NULL,
   `nombreLits` int(11) NOT NULL,
-  `typeChambre_fk` varchar(60) NOT NULL
+  `typeChambre_fk` varchar(60) NOT NULL,
+  `efface` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Contenu de la table `chambres`
 --
 
-INSERT INTO `chambres` (`numeroChambre`, `nombreLits`, `typeChambre_fk`) VALUES
-(59, 2, 'Deluxe'),
-(666, 666, 'Deluxe');
+INSERT INTO `chambres` (`numeroChambre`, `nombreLits`, `typeChambre_fk`, `efface`) VALUES
+(4, 2, 'Deluxe', 0);
 
 -- --------------------------------------------------------
 
@@ -51,15 +51,19 @@ CREATE TABLE `reservations` (
   `dateArrivee` date NOT NULL,
   `dateDepart` date NOT NULL,
   `numeroChambre_fk` int(11) NOT NULL,
-  `numeroUtilisateur_fk` int(255) NOT NULL
+  `numeroUtilisateur_fk` int(255) NOT NULL,
+  `masque` tinyint(1) NOT NULL,
+  `efface` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Contenu de la table `reservations`
 --
 
-INSERT INTO `reservations` (`numeroReservation`, `dateArrivee`, `dateDepart`, `numeroChambre_fk`, `numeroUtilisateur_fk`) VALUES
-(24, '2020-04-08', '2020-04-09', 666, 2);
+INSERT INTO `reservations` (`numeroReservation`, `dateArrivee`, `dateDepart`, `numeroChambre_fk`, `numeroUtilisateur_fk`, `masque`, `efface`) VALUES
+(47, '2020-06-05', '2020-06-05', 4, 3, 0, 0),
+(48, '2020-05-21', '2020-05-28', 4, 2, 0, 0),
+(49, '2020-05-22', '2020-05-28', 4, 4, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -91,18 +95,20 @@ CREATE TABLE `utilisateurs` (
   `numeroUtilisateur` int(255) NOT NULL,
   `nomUtilisateur` varchar(255) NOT NULL,
   `adresseUtilisateur` varchar(255) NOT NULL,
-  `villeUtilisateur` varchar(200) NOT NULL
+  `villeUtilisateur` varchar(200) NOT NULL,
+  `identifiant` varchar(255) NOT NULL,
+  `motDePasse` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Contenu de la table `utilisateurs`
 --
 
-INSERT INTO `utilisateurs` (`numeroUtilisateur`, `nomUtilisateur`, `adresseUtilisateur`, `villeUtilisateur`) VALUES
-(1, 'Georges Desmarais', '125 avenue De la Tourte', 'Saint-jean sur le richelieu'),
-(2, 'Anthony Bassal', '85 avenue De La tourte', 'Toutière'),
-(3, 'Jérémie Bergeron', '76 boulevard des ruisseaux', 'Jean-Coutu'),
-(4, 'Pascal Parent', '82 Boulevard de l\'avenir', 'Laval');
+INSERT INTO `utilisateurs` (`numeroUtilisateur`, `nomUtilisateur`, `adresseUtilisateur`, `villeUtilisateur`, `identifiant`, `motDePasse`) VALUES
+(1, 'Georges Desmarais', '125 avenue De la Tourte', 'Saint-jean sur le richelieu', '', ''),
+(2, 'Anthony Bassal', '85 avenue De La tourte', 'Toutière', '', ''),
+(3, 'Jérémie Bergeron', '76 boulevard des ruisseaux', 'Jean-Coutu', '', ''),
+(4, 'Pascal Parent', '82 Boulevard de l\'avenir', 'Laval', 'admin', 'admin');
 
 --
 -- Index pour les tables exportées
@@ -143,7 +149,7 @@ ALTER TABLE `utilisateurs`
 -- AUTO_INCREMENT pour la table `reservations`
 --
 ALTER TABLE `reservations`
-  MODIFY `numeroReservation` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `numeroReservation` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 --
 -- AUTO_INCREMENT pour la table `utilisateurs`
 --

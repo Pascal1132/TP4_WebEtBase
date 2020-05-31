@@ -7,6 +7,11 @@ class Reservation extends Modele{
         return $this->executerRequete($sql)->fetchAll(\PDO::FETCH_ASSOC);
 
     }
+    function getReservationsEffacees(){
+    $sql = 'SELECT * FROM reservations LEFT JOIN utilisateurs ON numeroUtilisateur_fk = numeroUtilisateur LEFT JOIN chambres ON numeroChambre_fk = numeroChambre WHERE reservations.efface=1 ORDER BY numeroReservation DESC LIMIT 0, 5';
+        return $this->executerRequete($sql)->fetchAll(\PDO::FETCH_ASSOC);
+
+    }
     function getInformationsReservation($id){
 
         $sql = 'SELECT * FROM reservations LEFT JOIN utilisateurs ON numeroUtilisateur_fk = numeroUtilisateur LEFT JOIN chambres ON numeroChambre_fk = numeroChambre WHERE numeroReservation = ? AND reservations.efface = 0';
@@ -25,6 +30,10 @@ class Reservation extends Modele{
        return $this->executerRequete($sql, [$id]);
 
     }
+    function restaurer($id){
+        $sql = 'UPDATE `reservations` SET efface=0 WHERE `reservations`.`numeroReservation` = ?';
+       return $this->executerRequete($sql, [$id]);
+    }
 
     function estIdentifiantReservationValide($id){
 
@@ -41,6 +50,16 @@ class Reservation extends Modele{
     {
         $sql = 'UPDATE reservations SET dateArrivee = ?, dateDepart=?, numeroChambre_fk=?, numeroUtilisateur_fk=? WHERE numeroReservation = ?';
         return $this->executerRequete($sql, [$reservation['dateArrivee'],$reservation['dateDepart'],$reservation['chambre'],$reservation['utilisateur'], $reservation['id']]);
+    }
+    public function estMasque($id){
+    	$sql = 'SELECT masque FROM reservations WHERE numeroReservation = ? AND efface = 0';
+        $result = $this->executerRequete($sql, [$id]);
+        $resultat = $result->fetch();
+        return $resultat[0];
+    }
+    public function setMasque($id, $masque){
+    	$sql = 'UPDATE reservations SET masque = ? WHERE numeroReservation = ?';
+    	return $this->executerRequete($sql, [$masque, $id]);
     }
 
 

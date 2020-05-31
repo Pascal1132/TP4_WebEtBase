@@ -51,6 +51,7 @@
     <h2>Liste des enregistrements dans la table :</h2>
     <table class="listeEnregistrement" align="center">
         <tr >
+            <th>Masquer/Afficher</th>
             <th>Modifier</th>
             <th>Effacer</th>
             <th>Date d'arrivée</th>
@@ -61,16 +62,29 @@
         <?php
         foreach ($reservations as $reservations)
         {
-            echo "<tr><td>".'<a href="reservations/modifier/' . htmlspecialchars($reservations['numeroReservation']) . '">[modifier]</a>' ."</td>" .
+            if($reservations['masque']){
+                echo "<tr><td>".'<a href="reservations/masquerafficher/' . htmlspecialchars($reservations['numeroReservation']) . '">[masquer/afficher]</a>' ."</td></tr>";
+            }else{
+                echo "<tr><td>".'<a href="reservations/masquerafficher/' . htmlspecialchars($reservations['numeroReservation']) . '">[masquer/afficher]</a>' ."</td>" ."<td>".'<a href="reservations/modifier/' . htmlspecialchars($reservations['numeroReservation']) . '">[modifier]</a>' ."</td>".
                 "<td>".'<a href="reservations/confirmer/' . $this->nettoyer($reservations['numeroReservation']) . '">[effacer]</a>' ."</td>" .
                 "<td>" . $this->nettoyer($reservations['dateArrivee']) . "</td>".
                 "<td>" . $this->nettoyer($reservations['dateDepart']) . "</td>".
                 "<td>" . $this->nettoyer($reservations['numeroChambre_fk']) . "<i> (".$this->nettoyer($reservations['typeChambre_fk']).")</i></td>".
                 "<td>".$this->nettoyer($reservations['nomUtilisateur'])."</td>
-					 </tr>";
+                     </tr>";
+            }
+            
         }
         ?>
     </table>
+    <hr>
+    <div>
+        <?php 
+            foreach ($reservationsEffacees as $reservation) {
+                echo $this->nettoyer($reservation['dateArrivee']).";".$this->nettoyer($reservation['dateDepart']).";".$this->nettoyer($reservation['numeroChambre_fk']).";".$this->nettoyer($reservation['nomUtilisateur'])."<a href='reservations/restaurer/".$this->nettoyer($reservation['numeroReservation'])."'>Restaurer</a>";
+            }
+        ?>
+    </div>
 </div>
 
 

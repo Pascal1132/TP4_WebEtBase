@@ -76,6 +76,16 @@ class ControleurReservations extends Controleur
         }
         $this->executerAction('index');
     }
+    public function masquerafficher(){
+        $id=$this->requete->getParametreId('id');
+        if($this->reservation->estMasque($id)){
+        	$this->reservation->setMasque($id, 0);
+        }else{
+        	$this->reservation->setMasque($id, 1);
+        }
+        $this->rediriger();
+        
+    }
 
 
     public function index()
@@ -89,8 +99,9 @@ class ControleurReservations extends Controleur
         $msg = $this->outils->getMessageInfo($msgCode);
         $reservations = $this->reservation->getReservations();
         $utilisateursTab = $this->utilisateur->getUtilisateurs();
+        $reservationsEffacees = $this->reservation->getReservationsEffacees();
         $chambresTab = $this->chambre->getChambres();
-        $this->genererVue(['utilisateursTab'=>$utilisateursTab, 'msg'=>$msg, 'msgCode'=>$msgCode, 'reservations'=>$reservations, 'chambresTab'=>$chambresTab]);
+        $this->genererVue(['utilisateursTab'=>$utilisateursTab, 'msg'=>$msg, 'msgCode'=>$msgCode, 'reservations'=>$reservations, 'chambresTab'=>$chambresTab, 'reservationsEffacees' =>$reservationsEffacees]);
     }
     public function ajouter(){
 
@@ -121,5 +132,10 @@ class ControleurReservations extends Controleur
             $msgInfo = "dateErr";
         }
         $this->executerAction('index');
+    }
+    public function restaurer(){
+        $id = $this->requete->getParametreId('id');
+        $this->reservation->restaurer($id);
+        $this->rediriger();
     }
 }
